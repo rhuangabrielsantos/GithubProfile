@@ -1,16 +1,37 @@
-import styled from 'styled-components';
 import Layout from '../components/Layout';
-
-const Text = styled.h1`
-  color: black;
-`;
+import {
+  Header,
+  GitHub,
+  Title,
+  Form,
+  Input,
+  Button,
+  Search,
+} from '../styles/home';
 
 function Home() {
   return (
     <Layout>
-      <Text>Hello!</Text>
+      <Header>
+        <GitHub />
+        <Title>GitHub Profile</Title>
+      </Header>
+      <Form>
+        <Input id="username" />
+        <Button onClick={searchProfile}>
+          <Search />
+        </Button>
+      </Form>
     </Layout>
   );
+}
+
+function searchProfile(event) {
+  event.preventDefault();
+
+  const username = document.querySelector('#username').value;
+
+  window.location.href = `user/${username}`;
 }
 
 export default Home;

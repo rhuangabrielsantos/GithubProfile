@@ -10,6 +10,7 @@ const Main = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   background: ${(props) => props.theme.bg.primary};
 `;
@@ -21,6 +22,12 @@ function Layout({ children, title = 'Github Profile' }) {
         <title>{title}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Main>
         <GlobalStyle />
