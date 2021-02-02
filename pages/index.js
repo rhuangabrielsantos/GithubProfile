@@ -1,4 +1,6 @@
+import Footer from '../components/Footer';
 import Layout from '../components/Layout';
+
 import {
   Header,
   GitHub,
@@ -22,6 +24,7 @@ function Home() {
           <Search />
         </Button>
       </Form>
+      <Footer />
     </Layout>
   );
 }

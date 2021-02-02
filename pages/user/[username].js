@@ -1,31 +1,23 @@
 import { useRouter } from 'next/router';
-import { FaCircleNotch } from 'react-icons/fa';
-
-import Image from 'next/image';
-import styled, { keyframes } from 'styled-components';
+import Link from 'next/link';
 
 import Layout from '../../components/Layout';
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const Spinner = styled(FaCircleNotch)`
-  animation: ${rotate} infinite 1s linear;
-
-  width: 10rem;
-  height: 10rem;
-`;
+import {
+  Spinner,
+  Avatar,
+  Name,
+  Box,
+  Description,
+  CompanyIcon,
+  LinkIcon,
+  MapIcon,
+  UserIcon,
+  BackIcon,
+  Img,
+} from '../../styles/user';
 
 function User({ githubProfile }) {
-  console.log(githubProfile);
-
   const router = useRouter();
 
   if (router.isFallback) {
@@ -38,12 +30,47 @@ function User({ githubProfile }) {
 
   return (
     <Layout>
-      <Image
-        src={githubProfile.avatar_url}
-        alt="Avatar"
-        width={100}
-        height={100}
-      />
+      <Link href="/">
+        <BackIcon />
+      </Link>
+
+      <Box>
+        <Avatar
+          src={githubProfile.avatar_url}
+          alt="Avatar"
+          width={170}
+          height={170}
+        />
+      </Box>
+      <Box>
+        <Name>{githubProfile.name}</Name>
+      </Box>
+
+      <Box>
+        <Description center>
+          <UserIcon /> {githubProfile.followers} followers ·{' '}
+          {githubProfile.following} following
+        </Description>
+      </Box>
+
+      <Box>
+        <Description center>{githubProfile.bio}</Description>
+      </Box>
+
+      <Box>
+        <CompanyIcon />
+        <Description>{githubProfile.company}</Description>
+      </Box>
+
+      <Box>
+        <MapIcon />
+        <Description>{githubProfile.location}</Description>
+      </Box>
+
+      <Box>
+        <LinkIcon />
+        <Description>{githubProfile.blog}</Description>
+      </Box>
     </Layout>
   );
 }

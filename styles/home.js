@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { FaSearch, FaGithub } from 'react-icons/fa';
 
 export const Input = styled.input`
-  width: 20rem;
+  width: 15rem;
   height: 2rem;
 
   border: 0;
@@ -12,6 +12,10 @@ export const Input = styled.input`
   padding: 0.3rem;
 
   outline: none;
+
+  @media (min-width: 800px) {
+    width: 20rem;
+  }
 `;
 
 export const Button = styled.button`
@@ -50,6 +54,10 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+
   margin-bottom: 5rem;
 `;
 
@@ -65,13 +73,19 @@ export const GitHub = styled(FaGithub)`
 
   color: ${(prop) => prop.theme.color.white};
 
-  margin-right: 2rem;
+  @media (min-width: 800px) {
+    margin-right: 2rem;
+  }
 `;
 
 export const Title = styled.h1`
   font-family: Roboto, sans-serif;
   font-weight: 100;
-  font-size: 5rem;
+  font-size: 2rem;
 
   color: ${(prop) => prop.theme.color.white};
+
+  @media (min-width: 800px) {
+    font-size: 5rem;
+  }
 `;
