@@ -13,6 +13,8 @@ const theme = {
     purple: '#bd93f9',
     red: '#ff5555',
     yellow: '#f1fa8c',
+    blue: '#5096E7',
+    grey: '#808080',
   },
 };
 
